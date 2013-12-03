@@ -1,0 +1,15 @@
+sudo aptitude install pastebinit
+sudo inxi -U
+ 
+cd ~
+inxi -Sc0 > diag.file
+inxi -Axc0 >> diag.file
+ 
+if head -1 diag.file | grep "Linux Mint 16";then
+find ~/.config/pulse -name \*source\* -printf '\n\n%c\n%f\n' -execdir cat {} ';' >> diag.file
+else
+find ~/.pulse -name \*source\* -printf '\n\n%c\n%f\n' -execdir cat {} ';' >> diag.file
+fi
+ 
+pastebinit diag.file
+rm diag.file
