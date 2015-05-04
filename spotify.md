@@ -27,24 +27,25 @@ So how do you get it? We've packaged it for Debian Squeeze/Ubuntu.
 ### Mint only [go here] (https://github.com/two-dogs/the-kennel/blob/master/spotify-mint-install.md)
 
 ### Fedora
+> Ensure ffmpeg-compat is installed, if not install it.
+
+' rpm -qa ffmpeg-compat ' 
+
+' sudo dnf isntall ffmpeg-compat '
+
 > Download the repo rpm  (subsitute  fc21 and x86_64 for your fedora-release and arch if they are different)
 
-`sudo yum install yum install http://trash.ulyaoth.net/trash/rpm/ulyaoth-1.0.0-1.fc21.x86_64.rpm `
+'sudo wget -O- /etc/yum.repos.d/fedora-spotify http://negativo17.org/repos/fedora-spotify.repo ' 
 
 >Install Spotify
 
-`sudo yum install spotify-client `
+`sudo dnf install spotify `
 
 > (optional to add full local play / offline play functionality)
 
 `sudo yum install ffmpeg ffmpeg-compat `
 
-> If you receive a gpgkey error after installing the repo rpm :
-> run with --nogpg (not recommended for safety reasons  on any pkg unless you know the key and it matches the one in the warning )i.e.  
-
-`sudo yum install spotify-client --nogpg `
-
-> obtain the keys and reattempt
+> `If you somehow get 'failed to import key...  run:'
 
 > opt. 1: `gpg --import --keyserver keyserver.ubuntu.com --recv-keys 94558F59`
 
